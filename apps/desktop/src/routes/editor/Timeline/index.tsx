@@ -192,6 +192,7 @@ export function Timeline() {
 						transform().position + secsPerPixel() * (e.clientX - left!),
 					);
 				}}
+				onMouseEnter={() => setEditorState("timeline", "hoveredTrack", null)}
 				onMouseLeave={() => {
 					setEditorState("previewTime", null);
 				}}
@@ -243,7 +244,7 @@ export function Timeline() {
 							style={{
 								left: `${TIMELINE_PADDING}px`,
 								transform: `translateX(${
-									(time() - transform().position) / secsPerPixel()
+									(time() - transform().position) / secsPerPixel() - 0.5
 								}px)`,
 							}}
 						>
